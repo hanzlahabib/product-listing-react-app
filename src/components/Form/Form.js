@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable array-callback-return */
 import React, { useState, useEffect } from 'react';
 import { useDidMounted } from '../../utils';
 import { Container, Title, Submit, Field } from './FormStyles';
@@ -63,7 +65,7 @@ const Form = () => {
             : '';
         break;
       default:
-        errors[name] = value == '' ? `Please fill ${name} field` : ''
+        errors[name] = value === '' ? `Please fill ${name} field` : ''
         break;
     }
     return errors

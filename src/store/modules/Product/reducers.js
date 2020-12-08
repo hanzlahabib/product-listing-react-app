@@ -1,6 +1,6 @@
 const initialState = JSON.parse(window.localStorage.getItem('products')) || [];
 
-export default (state = initialState, action) => {
+const productReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_PRODUCT':
       state = [...state, action.payload];
@@ -10,3 +10,5 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+export default productReducer

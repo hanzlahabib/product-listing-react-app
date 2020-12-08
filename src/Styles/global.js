@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import { pixelToViewportWidth as px2vw } from '../utils';
 export const Global = createGlobalStyle`
   * {
     margin: 0;

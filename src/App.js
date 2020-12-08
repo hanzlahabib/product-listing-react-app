@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { CardsContainer, Form } from './components';
 import { Container } from './AppStyles';
 import { useSelector } from 'react-redux';

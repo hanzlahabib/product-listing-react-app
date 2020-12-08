@@ -5,8 +5,8 @@ import { Container } from './CardsContainerStyles';
 const CardsContainer = ({ products }) => {
   return (
     <Container>
-      {products.map((product) => (
-        <Card product={product} />
+      {products.map((product, key) => (
+        <Card product={product} key={key}/>
       ))}
     </Container>
   );

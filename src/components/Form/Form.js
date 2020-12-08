@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDidMounted } from '../../utils';
 import { Container, Title, Submit, Field } from './FormStyles';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { addProduct } from '../../store/modules'
 const Form = () => {
   const didMounted = useDidMounted()
@@ -26,12 +26,6 @@ const Form = () => {
     combineValidateHandling();
     if(!isError){
       dispatch(addProduct(product))
-      setProduct({
-        name: '',
-        price: 0,
-        description: '',
-        inventoryDate: ''
-      })
     }
   }
 
@@ -39,6 +33,8 @@ const Form = () => {
     evt.preventDefault(); 
     const {value, name} = evt.target;
     setProduct({...product, [name]: value })
+    const errors = validateForm({name, value})
+    setFormErrors({...errors})
   }
 
   const combineValidateHandling = () => {
@@ -77,6 +73,7 @@ const Form = () => {
       if(!didMounted){
         if(!isError){
           combineValidateHandling()
+          setIsError(true)
         }
       }
   }, [product])
@@ -87,12 +84,10 @@ const Form = () => {
       <Field>
         <input required type="text" aria-label="Name" placeholder="Name" name="name" value={product.name} onChange={handleOnChange} />
         {formErrors.name !== '' ? <span>{formErrors.name}</span> : ''}
-      
       </Field>
       <Field>
         <input required type="text" aria-label="Description" placeholder="Description" name="description" value={product.description} onChange={handleOnChange} />
         {formErrors.description !== '' ? <span>{formErrors.description}</span> : ''}
-
       </Field>
       <Field>
         <input required type="number" aria-label="Price" placeholder="Price" name="price" value={product.price} onChange={handleOnChange} />

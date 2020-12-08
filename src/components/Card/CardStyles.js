@@ -71,8 +71,8 @@ export const Footer = styled.div`
     display: block;
     cursor: pointer;
     svg {
-      width: 25px;
-      color: rgba($color: #000000, $alpha: 0.7);
+      width: 22px;
+      color: rgb(8 8 8 / 70%);
     }
   }
 `;

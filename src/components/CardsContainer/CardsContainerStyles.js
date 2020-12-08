@@ -9,5 +9,4 @@ export const Container = styled.div`
   @media (max-width: 730px) {
     flex: 1;
   }
-
 `;

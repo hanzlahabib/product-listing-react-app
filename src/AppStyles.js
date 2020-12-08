@@ -10,7 +10,7 @@ export const Container = styled.div`
   padding: ${px2vw(25)};
   position: relative;
 
-  @media(max-width: 380px){
-    flex-direction:column;
+  @media (max-width: 380px) {
+    flex-direction: column;
   }
 `;

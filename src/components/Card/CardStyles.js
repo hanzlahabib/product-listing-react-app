@@ -20,10 +20,9 @@ export const Container = styled.div`
   @media (max-width: 1030px) {
     width: 280px;
   }
-  @media(max-width: 380px){
+  @media (max-width: 380px) {
     width: 100%;
   }
-
 `;
 
 export const Title = styled.div`

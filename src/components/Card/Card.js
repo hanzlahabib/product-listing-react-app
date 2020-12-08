@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Container, Title, Description, Price, Footer } from './CardStyles';
 const Card = ({ product: { name, description, inventoryDate, price, id } }) => {
   return (
@@ -32,5 +33,7 @@ const Card = ({ product: { name, description, inventoryDate, price, id } }) => {
     </Container>
   );
 };
-
+Card.propTypes = {
+  product: PropTypes.object,
+};
 export default Card;

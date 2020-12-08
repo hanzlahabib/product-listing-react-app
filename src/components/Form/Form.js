@@ -4,7 +4,6 @@ import { Container, Title, Submit, Field } from './FormStyles';
 import { useDispatch, useSelector } from 'react-redux'
 import { addProduct } from '../../store/modules'
 const Form = () => {
-  
   const didMounted = useDidMounted()
   const dispatch = useDispatch()
 
@@ -21,26 +20,40 @@ const Form = () => {
     description: '',
     inventoryDate: ''
   })
-  
+  const [isError, setIsError] = useState(true)
   const handleOnSubmit = ({evt, product}) => {
     evt.preventDefault();
     combineValidateHandling();
-    dispatch(addProduct(product))
+    if(!isError){
+      dispatch(addProduct(product))
+      setProduct({
+        name: '',
+        price: 0,
+        description: '',
+        inventoryDate: ''
+      })
+    }
   }
 
   const handleOnChange = (evt) => {
     evt.preventDefault(); 
     const {value, name} = evt.target;
-    let errors = {}
     setProduct({...product, [name]: value })
-    setFormErrors({...errors})
   }
 
   const combineValidateHandling = () => {
     let errors = {};
+    // Validate Form Keys
     Object.keys(product).map(name => {
       errors = validateForm({ name, value: product[name] });
     });
+    // Check if error exist
+    let checkError = Object.keys(errors).filter(error => {
+      if(errors[error] !== '' ){
+        return error
+      }
+    })
+    checkError.length > 0 ? setIsError(true) : setIsError(false)
     setFormErrors({ ...errors });
   }
 
@@ -62,7 +75,9 @@ const Form = () => {
 
   useEffect(() => {
       if(!didMounted){
-        combineValidateHandling()
+        if(!isError){
+          combineValidateHandling()
+        }
       }
   }, [product])
   

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { pixelToViewportWidth as px2vw } from '../../utils';
+import { pixelToViewportWidth as px2vw } from './utils';
 
-export const HomeContainer = styled.div`
+export const Container = styled.div`
   margin: auto;
   display: flex;
   flex-direction: row;

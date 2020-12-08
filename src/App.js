@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { CardsHolder, Form } from '../../components';
-import { HomeContainer } from './HomeStyles';
+import { CardsHolder, Form } from './components';
+import { Container } from './AppStyles';
 import { useSelector } from 'react-redux';
 import GlobalStyle from './Styles/global';
 const App = () => {
@@ -9,10 +9,10 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      <HomeContainer>
+      <Container>
         <Form />
         <CardsHolder products={products} />
-      </HomeContainer>
+      </Container>
     </>
   );
 };

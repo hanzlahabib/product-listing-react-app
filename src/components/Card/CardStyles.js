@@ -17,6 +17,13 @@ export const Container = styled.div`
     transition: all 0.2s ease-in-out;
     transform: scale(1.05);
   }
+  @media (max-width: 1030px) {
+    width: 280px;
+  }
+  @media(max-width: 380px){
+    width: 100%;
+  }
+
 `;
 
 export const Title = styled.div`

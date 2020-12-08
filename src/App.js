@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { CardsHolder, Form } from './components';
+import { CardsContainer, Form } from './components';
 import { Container } from './AppStyles';
 import { useSelector } from 'react-redux';
 import GlobalStyle from './Styles/global';
@@ -11,7 +11,7 @@ const App = () => {
       <GlobalStyle />
       <Container>
         <Form />
-        <CardsHolder products={products} />
+        <CardsContainer products={products} />
       </Container>
     </>
   );

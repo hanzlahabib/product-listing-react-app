@@ -6,4 +6,8 @@ export const Container = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
+  @media (max-width: 730px) {
+    flex: 1;
+  }
+
 `;

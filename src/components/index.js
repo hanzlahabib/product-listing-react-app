@@ -1,5 +1,5 @@
 import Card from './Card/Card';
-import CardsHolder from './CardsHolder/CardsHolder';
+import CardsContainer from './CardsContainer/CardsContainer';
 import Form from './Form/Form';
 
-export { Card, CardsHolder, Form };
+export { Card, CardsContainer, Form };

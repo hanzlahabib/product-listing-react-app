@@ -9,4 +9,8 @@ export const Container = styled.div`
   margin: ${px2vw(25)};
   padding: ${px2vw(25)};
   position: relative;
+
+  @media(max-width: 380px){
+    flex-direction:column;
+  }
 `;

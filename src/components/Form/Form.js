@@ -23,12 +23,9 @@ const Form = () => {
     inventoryDate: ''
   })
   const [isError, setIsError] = useState(true)
-  const handleOnSubmit = ({evt, product}) => {
+  const handleOnSubmit = (evt) => {
     evt.preventDefault();
-    combineValidateHandling();
-    if(!isError){
-      dispatch(addProduct(product))
-    }
+    combineValidateHandling()
   }
 
   const handleOnChange = (evt) => {
@@ -79,6 +76,19 @@ const Form = () => {
         }
       }
   }, [product])
+
+  useEffect(() => {
+    if(!isError){
+      dispatch(addProduct(product))
+      setIsError(true)
+      setProduct({
+        name: '',
+        price: 0,
+        description: '',
+        inventoryDate: ''
+      })
+    }
+  }, [isError])
   
   return (
     <Container>
@@ -99,7 +109,7 @@ const Form = () => {
         <input required type="date" aria-label="Date" placeholder="Date" name="inventoryDate" value={product.inventoryDate} onChange={handleOnChange} />
         {formErrors.inventoryDate !== '' ? <span>{formErrors.inventoryDate}</span> : ''}
       </Field>
-      <Submit onClick={evt => handleOnSubmit({evt, product})}> Submit</Submit>
+      <Submit onClick={handleOnSubmit}> Submit</Submit>
     </Container>
   );
 };
